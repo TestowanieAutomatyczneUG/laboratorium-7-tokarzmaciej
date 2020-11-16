@@ -1,7 +1,7 @@
 class Roman():
     def roman(self, romanNumber):
         if type(romanNumber) != int:
-            raise Exception("you change bad type")
+            raise Exception("You take bad type")
         romanNumberTuple = (('M', 1000),
                             ('CM', 900),
                             ('D', 500),

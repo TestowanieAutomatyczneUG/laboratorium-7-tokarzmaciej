@@ -3,7 +3,7 @@ from sample.RomanNumber import *
 from parameterized import parameterized, parameterized_class
 
 
-class FizzBuzzParameterizedPackage(unittest.TestCase):
+class RomanParameterizedPackage(unittest.TestCase):
 
     def setUp(self):
         self.tmp = Roman()
@@ -33,17 +33,15 @@ class FizzBuzzParameterizedPackage(unittest.TestCase):
     def test_roman_number_parameterized(self, romanNumber, expected):
         self.assertEqual(self.tmp.roman(romanNumber), expected)
 
-# @parameterized_class(('number', 'expected'), [
-#         (5, "Buzz"),
-#         (3, "Fizz"),
-#         (15, "FizzBuzz"),
-# ])
-# class FizzBuzzParameterizedPackage2(unittest.TestCase):
-#     def setUp(self):
-#         self.tmp = FizzBuzz()
-#
-#     def test_second_parameterized(self):
-#         self.assertEqual(self.tmp.game(self.number), self.expected)
+    @parameterized.expand([
+        (False,"You take bad type"),
+        ('II', "You take bad type"),
+        (1.3, "You take bad type"),
+
+    ])
+    def test_roman_number_exception_parameterized(self, romanNumber,expected):
+        self.assertRaisesRegex(Exception,expected,self.tmp.roman, romanNumber)
+
 
 if __name__ == '__main__':
     unittest.main()
