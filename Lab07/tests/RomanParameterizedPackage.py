@@ -73,5 +73,18 @@ class RomanParameterizedPackage2(unittest.TestCase):
         self.assertEqual(self.tmp.roman(self.romanNumber), self.expected)
 
 
+@parameterized_class(('romanNumber', 'expected'), [
+    (False, "You take bad type"),
+    ('II', "You take bad type"),
+    (1.3, "You take bad type"),
+])
+class RomanParameterizedExceptionsPackage2(unittest.TestCase):
+    def setUp(self):
+        self.tmp = Roman()
+
+    def test_second__exception_parameterized(self):
+        self.assertRaisesRegex(Exception, self.expected, self.tmp.roman, self.romanNumber)
+
+
 if __name__ == '__main__':
     unittest.main()
