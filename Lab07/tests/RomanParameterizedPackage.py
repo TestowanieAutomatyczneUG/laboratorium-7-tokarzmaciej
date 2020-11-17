@@ -1,7 +1,8 @@
 import unittest
 from sample.RomanNumber import *
 from parameterized import parameterized, parameterized_class
-from nose.tools import assert_equal
+from nose.tools import assert_equal, assert_raises
+
 
 class RomanParameterizedPackage(unittest.TestCase):
 
@@ -110,8 +111,17 @@ class RomanParameterizedExceptionsPackage2(unittest.TestCase):
 ])
 def test_roman_number_avoid_class(romanNumber, expected):
     number = Roman()
-    assert_equal(number.roman(romanNumber),expected)
+    assert_equal(number.roman(romanNumber), expected)
 
+
+@parameterized([
+    (False, "You take bad type"),
+    ('II', "You take bad type"),
+    (1.3, "You take bad type"),
+])
+def test_roman_number_exceptions_avoid_class(romanNumber, expected):
+    number = Roman()
+    assert_raises(Exception, expected, number.roman, romanNumber)
 
 
 if __name__ == '__main__':
