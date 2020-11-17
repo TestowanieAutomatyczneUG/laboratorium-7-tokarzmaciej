@@ -1,7 +1,7 @@
 import unittest
 from sample.RomanNumber import *
 from parameterized import parameterized, parameterized_class
-
+from nose.tools import assert_equal
 
 class RomanParameterizedPackage(unittest.TestCase):
 
@@ -84,6 +84,34 @@ class RomanParameterizedExceptionsPackage2(unittest.TestCase):
 
     def test_second__exception_parameterized(self):
         self.assertRaisesRegex(Exception, self.expected, self.tmp.roman, self.romanNumber)
+
+
+@parameterized([
+    (1, "I"),
+    (2, "II"),
+    (3, "III"),
+    (4, "IV"),
+    (5, "V"),
+    (6, "VI"),
+    (7, "VII"),
+    (9, "IX"),
+    (27, "XXVII"),
+    (48, "XLVIII"),
+    (49, "XLIX"),
+    (59, "LIX"),
+    (93, "XCIII"),
+    (141, "CXLI"),
+    (163, "CLXIII"),
+    (402, "CDII"),
+    (575, "DLXXV"),
+    (911, "CMXI"),
+    (1024, "MXXIV"),
+    (3000, "MMM"),
+])
+def test_roman_number_avoid_class(romanNumber, expected):
+    number = Roman()
+    assert_equal(number.roman(romanNumber),expected)
+
 
 
 if __name__ == '__main__':
