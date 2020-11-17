@@ -1,2 +1,3 @@
 [![Coverage Status](https://coveralls.io/repos/github/TestowanieAutomatyczneUG/laboratorium-7-tokarzmaciej/badge.svg?branch=main)]
 (https://coveralls.io/github/TestowanieAutomatyczneUG/laboratorium-7-tokarzmaciej?branch=main)
+#Laboratorium 7
