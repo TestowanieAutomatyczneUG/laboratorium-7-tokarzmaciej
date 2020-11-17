@@ -1,6 +1,6 @@
 #This is a comment
 
-AATG AAA
-ATA AGTG
-"" G
-G ""
+AATG AAA not_equal_length!
+ATA AGTG not_equal_length!
+"" G not_equal_length!
+G "" not_equal_length!

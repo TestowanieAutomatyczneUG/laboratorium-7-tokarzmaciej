@@ -2,7 +2,7 @@ class Hamming():
     def distance(self, A, B):
         counter = 0
         if len(A) != len(B):
-            raise Exception("not equal length!")
+            raise Exception("not_equal_length!")
         else:
             for position in range(len(A)):
                 if len(A[position]) == len(B[position]) and A[position] != B[position]:

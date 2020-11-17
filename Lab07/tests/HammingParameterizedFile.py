@@ -23,8 +23,8 @@ class HammingParameterizedFile(unittest.TestCase):
             continue
         else:
             data = line.split(" ")
-            inp1, inp2 = (data[0], data[1])
-            self.assertRaises(Exception,tmpHamming.distance, (inp1, inp2))
+            inp1, inp2, message = (data[0], data[1], data[2].strip("\n"))
+            self.assertRaisesRegex(Exception, message, tmpHamming.distance, inp1, inp2)
       fileTest.close()
 
 
